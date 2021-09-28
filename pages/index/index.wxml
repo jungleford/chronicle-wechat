@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="home">
+  <view class="header">
+    <image class="avatar" src="../../logo.png" />
+  </view>
+  <view class="body">
+    <tile
+      imgUrl="/pages/index/image/background0.jpg" imgMode="aspectFill"
+      title="说明" id="about" bindtap="goToPage"
+    />
+    <tile
+      imgUrl="/pages/index/image/background1.jpg" imgMode="aspectFill"
+      title="中国工农红军部队沿革路线图" id="pla_1_red" bindtap="goToPage"
+    />
+    <tile imgUrl="/pages/index/image/placeholder.png" foreground="#666" title="敬请期待" />
+    <tile imgUrl="/pages/index/image/placeholder.png" foreground="#666" title="敬请期待" />
+    <tile imgUrl="/pages/index/image/placeholder.png" foreground="#666" title="敬请期待" />
+  </view>
+</view>

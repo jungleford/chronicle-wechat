@@ -1,0 +1,36 @@
+/**index.wxss**/
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #aaa;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin-bottom: 80rpx;
+  border: 1rpx solid #aaa;
+  border-radius: 50%;
+  /* box-shadow: 2rpx 2rpx 2rpx #aaa; */
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 90%;
+  color: #aaa;
+}

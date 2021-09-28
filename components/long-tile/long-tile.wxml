@@ -1,0 +1,10 @@
+<!--components/long-tile/long-tile.wxml-->
+<view class="container">
+  <view class="tile" style="background-color: {{background}};">
+    <image class="tile-image" mode="{{imgMode}}" src="{{imgUrl}}" />
+  </view>
+  <view class="banner frosted" style="background: {{banner}};" />
+  <view class="banner title">
+    <text class="text" style="color: {{foreground}};">{{title}}</text>
+  </view>
+</view>

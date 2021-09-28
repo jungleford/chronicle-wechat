@@ -1,0 +1,7 @@
+{
+  "desc": "历史年表小程序",
+  "rules": [{
+  "action": "allow",
+  "page": "*"
+  }]
+}

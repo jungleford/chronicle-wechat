@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // url: 'https://static.mysmth.net/nForum/att/Modern_CHN/609880/4524'
+    url: 'http://ks3-cn-beijing.ksyun.com/attachment/5c4dae443d305e6ab42fe90121327225',
+    width: 7340, // original image width
+    height: 61648, // original image height
+    zoom: 1.5,
+    zoomFav: 1.5,
   },
 
   /**

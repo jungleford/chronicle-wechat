@@ -1,0 +1,34 @@
+.label {
+  padding-top: 12rpx;
+  font-size: 30rpx;
+}
+
+.label.small {
+  font-size: 24rpx;
+}
+
+.container-no-padding {
+  padding-top: 20rpx;
+}
+
+.title {
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.subtitle {
+  font-size: large;
+  font-weight: bold;
+}
+
+.content {
+  width: 90%;
+  padding-top: 10rpx;
+}
+
+.hyperlink {
+  font-size: 28rpx;
+  color: skyblue;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}

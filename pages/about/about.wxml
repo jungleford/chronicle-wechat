@@ -1,2 +1,18 @@
 <!--pages/about/about.wxml-->
-<text>pages/about/about.wxml</text>
+<view class="container container-no-padding">
+  <!-- 标题 -->
+  <text class="title">关于沿革史图解</text>
+  <text class="label small">作者：jungleford@水木社区</text>
+
+  <view class="content">
+
+    <view class="paragraph">
+      <text class="label small" style="color: red;">声明：由于本人并非微信小程序的专业开发和美工设计人员，因此本程序的界面和功能都比较简单，仅仅是一个练习作品。本小程序是开源的，欢迎使用，但请务必注明作者和版权信息。</text>
+    </view>
+
+    <view class="paragraph">
+    </view>
+
+  </view>
+
+</view>

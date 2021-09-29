@@ -1,2 +1,4 @@
 <!--pages/roadmap/pages/pla_1_red/pla_1_red.wxml-->
-<text>pages/roadmap/pages/pla_1_red/pla_1_red.wxml</text>
+<scroll-view scroll-x="true" scroll-y="true" enable-back-to-top="true" enhanced="true">
+  <image mode="aspectFit" src="{{url}}" style="width: {{width * zoom}}px; height: {{height * zoom}}px;" />
+</scroll-view>

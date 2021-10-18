@@ -1,4 +1,6 @@
 // index.js
+const app = getApp();
+
 Page({
   data: {
   },
@@ -15,9 +17,11 @@ Page({
   },
 
   goToDebug: function (e) {
-    wx.navigateTo({
-      url: '../debug/debug'
-    });
+    if (app.globalData.debug) {
+      wx.navigateTo({
+        url: '../debug/debug'
+      });
+    }
   },
 
   onLoad() {

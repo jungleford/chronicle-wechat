@@ -1,0 +1,28 @@
+/* pages/debug/debug.wxss */
+@import "../common/common.wxss";
+
+.section {
+  width: 60%;
+  padding: 16rpx;
+}
+
+.picker-panel {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  bottom: 64rpx;
+  left: 24rpx;
+}
+
+.picker-adapt {
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.picker-column {
+  width: 160rpx;
+}
+
+.picker-item {
+  font-weight: bold;
+}

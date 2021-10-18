@@ -3,12 +3,13 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/about/about",
-    "pages/roadmap/pages/pla_1_red/pla_1_red"
+    "pages/roadmap/pages/pla_1_red/pla_1_red",
+    "pages/debug/debug"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "沿革史图解",
+    "navigationBarTitleText": "年表 - 沿革史图解",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

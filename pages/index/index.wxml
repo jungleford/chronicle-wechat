@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="home">
-  <view class="header">
+  <view class="header" bindtap="goToDebug">
     <image class="avatar" src="../../logo.png" />
   </view>
   <view class="body">

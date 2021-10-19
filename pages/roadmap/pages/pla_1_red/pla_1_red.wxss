@@ -1,1 +1,45 @@
 /* pages/roadmap/pages/pla_1_red/pla_1_red.wxss */
+@import "../../../common/common.wxss";
+
+.ctn {
+  height: 100vh; /* make sure scroll-top can work */
+}
+
+.float {
+  padding: 16rpx;
+  background-color: rgba(245, 245, 245, 0.7);
+}
+
+.zoom-panel {
+  top: 32rpx;
+  right: 24rpx;
+}
+
+.zoom-panel .label {
+  font-weight: bold;
+}
+
+.picker-panel {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  bottom: 64rpx;
+  left: 24rpx;
+}
+
+.picker-adapt {
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.picker-column {
+  width: 160rpx;
+}
+
+.picker-item {
+  font-weight: bold;
+}
+
+.debug-button {
+  margin-left: 16rpx;
+}

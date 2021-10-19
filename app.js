@@ -16,5 +16,7 @@ App({
   globalData: {
     userInfo: null,
     debug: false,
+    screenWidth: wx.getSystemInfoSync().windowWidth,
+    screenHeight: wx.getSystemInfoSync().windowHeight,
   }
 })

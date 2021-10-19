@@ -1,4 +1,37 @@
 <!--pages/roadmap/pages/pla_1_red/pla_1_red.wxml-->
-<scroll-view scroll-x="true" scroll-y="true" enable-back-to-top="true" enhanced="true">
-  <image mode="aspectFit" src="{{url}}" style="width: {{width * zoom}}px; height: {{height * zoom}}px;" />
+<loading hidden="{{!loading}}">努力加载中...</loading>
+
+<scroll-view
+  class="ctn"
+  enable-back-to-top="true" enhanced="true"
+  scroll-x="true" scroll-y="true"
+  scroll-left="{{x * zoom}}" scroll-top="{{y * zoom}}" bindscroll="onScroll"
+>
+  <image
+    mode="aspectFit" src="{{url}}"
+    style="width: {{width * zoom}}px; height: {{height * zoom}}px;"
+    bindload="onSvgLoaded"
+  />
 </scroll-view>
+
+<view class="zoom-panel float">
+  <text class="label small" style="color: green;">缩放：</text> <text>{{zoom * 100}}%</text>
+</view>
+
+<view class="picker-panel float">
+  <picker-view value="{{yearIndex}}" bindchange="changeYear" indicator-class="picker-adapt">
+    <text class="label">年份：</text>
+    <picker-view-column class="picker-column">
+      <view wx:for="{{years}}" wx:key="item" class="picker-item" style="color: #ceba06;">{{item.year}}</view>
+    </picker-view-column>
+  </picker-view>
+  <picker-view value="{{troopIndex}}" bindchange="changeTroop" indicator-class="picker-adapt">
+    <text class="label">部队：</text>
+    <picker-view-column class="picker-column">
+      <view wx:for="{{troops}}" wx:key="item" class="picker-item" style="color: red;">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+  <button wx:if="{{debug}}" class="debug-button" size="mini" type="primary" bindtap="goto">Go!</button>
+</view>
+
+<goto show="{{showGoto}}" text="去顶部" delegate="false" bindtap="goTop" />

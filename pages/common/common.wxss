@@ -35,3 +35,8 @@
   text-decoration-line: underline;
   text-decoration-style: dashed;
 }
+
+.float {
+  position: fixed;
+  z-index: 500;
+}

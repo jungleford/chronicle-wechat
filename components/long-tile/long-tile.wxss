@@ -46,4 +46,5 @@
 .text {
   font-size: 32rpx;
   font-weight: bold;
+  font-family: 华文行楷;
 }

@@ -1,10 +1,13 @@
 .label {
-  padding-top: 12rpx;
   font-size: 30rpx;
 }
 
 .label.small {
   font-size: 24rpx;
+}
+
+.new-line {
+  padding-top: 12rpx;
 }
 
 .container-no-padding {

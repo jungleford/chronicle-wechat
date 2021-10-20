@@ -11,6 +11,7 @@ Page({
   data: {
     /*=== 常量 ===*/
     ZOOM_BEST: 1.5,
+    ZOOM_LIST: [0.25, 0.5, 1, 1.5, 2], // 简易的放大倍率列表
 
     /*=== 变量 ===*/
     loading: true,
@@ -100,6 +101,24 @@ Page({
   touchStart: function (e) {},
 
   touchMove: function (e) {},
+
+  zoomIn: function (e) {
+    const index = this.data.ZOOM_LIST.findIndex(z => z === this.data.zoom);
+    if (index < 0) {
+      this.setData({zoom: 1});
+    } else if (index < this.data.ZOOM_LIST.length - 1) {
+      this.setData({zoom: this.data.ZOOM_LIST[index + 1]});
+    }
+  },
+
+  zoomOut: function (e) {
+    const index = this.data.ZOOM_LIST.findIndex(z => z === this.data.zoom);
+    if (index < 0) {
+      this.setData({zoom: 1});
+    } else if (index > 0) {
+      this.setData({zoom: this.data.ZOOM_LIST[index - 1]});
+    }
+  },
 
   onScroll: function (e) {
     console.log(`X: ${e.detail.scrollLeft}, Y: ${e.detail.scrollTop}`);

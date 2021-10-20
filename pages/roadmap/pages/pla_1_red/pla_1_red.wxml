@@ -15,7 +15,10 @@
 </scroll-view>
 
 <view class="zoom-panel float">
-  <text class="label small" style="color: green;">缩放：</text> <text>{{zoom * 100}}%</text>
+  <text class="label small" style="color: green;">缩放：</text>
+  <button class="zoom-button" bindtap="zoomOut">-</button>
+  <text>{{zoom * 100}}%</text>
+  <button class="zoom-button" bindtap="zoomIn">+</button>
 </view>
 
 <view class="picker-panel float">

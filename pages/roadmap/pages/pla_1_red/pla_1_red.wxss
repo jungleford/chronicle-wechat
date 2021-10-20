@@ -11,12 +11,21 @@
 }
 
 .zoom-panel {
+  display: flex;
+  justify-content: start;
+  align-items: center;
   top: 32rpx;
   right: 24rpx;
 }
 
 .zoom-panel .label {
   font-weight: bold;
+}
+
+.zoom-button {
+  max-width: 48rpx;
+  max-height: 48rpx;
+  padding: 0 8rpx;
 }
 
 .picker-panel {

@@ -40,6 +40,18 @@
   font-weight: bold;
 }
 
+.debug-panel {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  bottom: 144rpx;
+  left: 24rpx;
+}
+
+.debug-input {
+  width: 100rpx;
+}
+
 .debug-button {
   margin-left: 16rpx;
 }

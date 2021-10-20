@@ -9,11 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    /* 常量 */
+    /*=== 常量 ===*/
     ZOOM_BEST: 1.5,
 
-    /* 变量 */
-    debug: app.globalData.debug,
+    /*=== 变量 ===*/
     loading: true,
     // url: 'https://static.mysmth.net/nForum/att/Modern_CHN/609880/4524'
     url: 'http://ks3-cn-beijing.ksyun.com/attachment/5c4dae443d305e6ab42fe90121327225',
@@ -53,11 +52,39 @@ Page({
     favorites: [],
 
     showGoto: false,
+
+    /*=== 测试用 ===*/
+    debug: app.globalData.debug,
+    debugX: 0,
+    debugY: 0,
+  },
+
+  /* setX()和setY()为测试用 */
+  setX: function (e) {
+    let x = e.detail.value;
+    const maxX = this.data.width * this.data.zoom - app.globalData.screenWidth;
+    if (isNaN(x) || x < 0) {
+      x = 0;
+    } else if (x > maxX) {
+      x = maxX;
+    }
+    this.setData({debugX: x});
+  },
+
+  setY: function (e) {
+    let y = e.detail.value;
+    const maxY = this.data.height * this.data.zoom - app.globalData.screenHeight;
+    if (isNaN(y) || y < 0) {
+      y = 0;
+    } else if (y > maxY) {
+      y = maxY;
+    }
+    this.setData({debugY: y});
   },
 
   /* goto()为测试用 */
   goto: function () {
-    this.setData({x: 0, y: 0});
+    this.setData({x: this.data.debugX, y: this.data.debugY});
   },
 
   onSvgLoaded: function (e) {

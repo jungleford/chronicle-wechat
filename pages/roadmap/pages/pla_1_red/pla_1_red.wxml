@@ -31,7 +31,12 @@
       <view wx:for="{{troops}}" wx:key="item" class="picker-item" style="color: red;">{{item.name}}</view>
     </picker-view-column>
   </picker-view>
-  <button wx:if="{{debug}}" class="debug-button" size="mini" type="primary" bindtap="goto">Go!</button>
+</view>
+
+<view wx:if="{{debug}}" class="debug-panel float">
+  <text class="label">X：</text><input class="debug-input" type="number" value="{{debugX}}" bindblur="setX" />
+  <text class="label">Y：</text><input class="debug-input" type="number" value="{{debugY}}" bindblur="setY" />
+  <button class="debug-button" size="mini" type="primary" bindtap="goto">Go!</button>
 </view>
 
 <goto show="{{showGoto}}" text="去顶部" delegate="false" bindtap="goTop" />

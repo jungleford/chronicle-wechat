@@ -25,6 +25,8 @@ Page({
     x: 0, // 当前屏幕左上角的横坐标
     y: 0, // 当前屏幕左上角的纵坐标
 
+    showZoom: false, // 打开/收起缩放面板
+
     /*
      * 年份坐标快捷书签，默认放大倍率为1
      * 位置为年份标签出现在可见屏幕右侧时，左上角的坐标
@@ -40,6 +42,8 @@ Page({
     troop: null,
     troopIndex: [0],
     troops: [], // picker上的列表可能会有联动
+
+    showPicker: false, // 打开/收起picker面板
 
     /*
      * favorites数组：用户添加的坐标书签。
@@ -58,6 +62,17 @@ Page({
     debug: app.globalData.debug,
     debugX: 0,
     debugY: 0,
+    showDebug: false, // 打开/收起调试面板
+  },
+
+  /* 打开调试面板 */
+  showDebug: function (e) {
+    this.setData({showDebug: true});
+  },
+
+  /* 关闭调试面板 */
+  hideDebug: function (e) {
+    this.setData({showDebug: false});
   },
 
   /* setX()和setY()为测试用 */
@@ -102,6 +117,16 @@ Page({
 
   touchMove: function (e) {},
 
+  /* 打开缩放面板 */
+  showZoom: function (e) {
+    this.setData({showZoom: true});
+  },
+
+  /* 关闭缩放面板 */
+  hideZoom: function (e) {
+    this.setData({showZoom: false});
+  },
+
   zoomIn: function (e) {
     const index = this.data.ZOOM_LIST.findIndex(z => z === this.data.zoom);
     if (index < 0) {
@@ -125,6 +150,16 @@ Page({
     this.setData({
       showGoto: e.detail.scrollTop > 500, // 向下滚动大约一屏左右即显示“去顶部”按钮
     });
+  },
+
+  /* 打开Picker面板 */
+  showPicker: function (e) {
+    this.setData({showPicker: true});
+  },
+
+  /* 关闭Picker面板 */
+  hidePicker: function (e) {
+    this.setData({showPicker: false});
   },
 
   /* 如果定位靠右侧，则需要进行横坐标定位的补偿 */

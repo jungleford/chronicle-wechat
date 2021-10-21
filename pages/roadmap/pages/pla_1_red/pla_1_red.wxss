@@ -53,7 +53,7 @@
 }
 
 .picker-adapt {
-  height: 40rpx;
+  height: 46rpx;
   line-height: 40rpx;
 }
 

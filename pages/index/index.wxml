@@ -2,6 +2,7 @@
 <view class="home">
   <view class="header" bindtap="goToDebug">
     <image class="avatar" src="../../logo.png" />
+    <text>v0.0.1</text>
   </view>
   <view class="body">
     <tile

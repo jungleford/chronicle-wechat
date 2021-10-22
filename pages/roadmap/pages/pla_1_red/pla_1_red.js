@@ -65,14 +65,9 @@ Page({
     showDebug: false, // 打开/收起调试面板
   },
 
-  /* 打开调试面板 */
-  showDebug: function (e) {
-    this.setData({showDebug: true});
-  },
-
-  /* 关闭调试面板 */
-  hideDebug: function (e) {
-    this.setData({showDebug: false});
+  /* 打开/关闭调试面板 */
+  toggleDebug: function (e) {
+    this.setData({showDebug: !this.data.showDebug});
   },
 
   /* setX()和setY()为测试用 */
@@ -117,14 +112,9 @@ Page({
 
   touchMove: function (e) {},
 
-  /* 打开缩放面板 */
-  showZoom: function (e) {
-    this.setData({showZoom: true});
-  },
-
-  /* 关闭缩放面板 */
-  hideZoom: function (e) {
-    this.setData({showZoom: false});
+  /* 打开/关闭缩放面板 */
+  toggleZoom: function (e) {
+    this.setData({showZoom: !this.data.showZoom});
   },
 
   zoomIn: function (e) {
@@ -152,14 +142,9 @@ Page({
     });
   },
 
-  /* 打开Picker面板 */
-  showPicker: function (e) {
-    this.setData({showPicker: true});
-  },
-
-  /* 关闭Picker面板 */
-  hidePicker: function (e) {
-    this.setData({showPicker: false});
+  /* 打开/关闭Picker面板 */
+  togglePicker: function (e) {
+    this.setData({showPicker: !this.data.showPicker});
   },
 
   /* 如果定位靠右侧，则需要进行横坐标定位的补偿 */

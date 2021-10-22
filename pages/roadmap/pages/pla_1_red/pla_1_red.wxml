@@ -15,21 +15,21 @@
 </scroll-view>
 
 <view wx:if="{{!showZoom}}" class="zoom-panel float right-panel-hide">
-  <mp-icon type="field" icon="search" color="#03A9F4" size="{{18}}" bindtap="showZoom"></mp-icon>
+  <mp-icon type="field" icon="max-window" color="#03A9F4" size="{{18}}" bindtap="toggleZoom"></mp-icon>
 </view>
 <view wx:if="{{showZoom}}" class="zoom-panel float">
   <text class="label small" style="color: green;">缩放：</text>
   <button class="zoom-button" bindtap="zoomOut">-</button>
   <text>{{zoom * 100}}%</text>
   <button class="zoom-button" bindtap="zoomIn">+</button>
-  <mp-icon type="field" icon="arrow" color="#03A9F4" size="{{14}}" style="margin-left: 16rpx;" bindtap="hideZoom"></mp-icon>
+  <mp-icon type="field" icon="arrow" color="#03A9F4" size="{{14}}" style="margin-left: 16rpx;" bindtap="toggleZoom"></mp-icon>
 </view>
 
 <view wx:if="{{!showPicker}}" class="picker-panel float left-panel-hide">
-  <mp-icon type="field" icon="arrow" color="#03A9F4" size="{{18}}" bindtap="showPicker"></mp-icon>
+  <mp-icon type="field" icon="arrow" color="#03A9F4" size="{{18}}" bindtap="togglePicker"></mp-icon>
 </view>
 <view wx:if="{{showPicker}}" class="picker-panel float">
-  <mp-icon type="field" icon="back" color="#03A9F4" size="{{14}}" style="margin-right: 16rpx;" bindtap="hidePicker"></mp-icon>
+  <mp-icon type="field" icon="back" color="#03A9F4" size="{{14}}" style="margin-right: 16rpx;" bindtap="togglePicker"></mp-icon>
   <picker-view value="{{yearIndex}}" bindchange="changeYear" indicator-class="picker-adapt">
     <text class="label">年份：</text>
     <picker-view-column class="picker-column">
@@ -45,10 +45,10 @@
 </view>
 
 <view wx:if="{{debug && !showDebug}}" class="debug-panel float left-panel-hide">
-  <mp-icon type="field" icon="eyes-on" color="#FF4081" size="{{18}}" bindtap="showDebug"></mp-icon>
+  <mp-icon type="field" icon="eyes-on" color="#FF4081" size="{{18}}" bindtap="toggleDebug"></mp-icon>
 </view>
 <view wx:if="{{debug && showDebug}}" class="debug-panel float">
-  <mp-icon type="field" icon="back" color="#FF4081" size="{{14}}" style="margin-right: 16rpx;" bindtap="hideDebug"></mp-icon>
+  <mp-icon type="field" icon="back" color="#FF4081" size="{{14}}" style="margin-right: 16rpx;" bindtap="toggleDebug"></mp-icon>
   <text class="label">X：</text><input class="debug-input" type="number" value="{{debugX}}" bindblur="setX" />
   <text class="label">Y：</text><input class="debug-input" type="number" value="{{debugY}}" bindblur="setY" />
   <button class="debug-button" size="mini" type="primary" bindtap="goto" style="line-height: 48rpx;">Go!</button>

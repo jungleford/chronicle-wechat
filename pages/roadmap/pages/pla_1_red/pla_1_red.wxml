@@ -26,7 +26,7 @@
 </view>
 
 <view wx:if="{{!showPicker}}" class="picker-panel float left-panel-hide">
-  <mp-icon type="field" icon="arrow" color="#03A9F4" size="{{18}}" bindtap="togglePicker"></mp-icon>
+  <mp-icon type="field" icon="location" color="#03A9F4" size="{{18}}" bindtap="togglePicker"></mp-icon>
 </view>
 <view wx:if="{{showPicker}}" class="picker-panel float">
   <mp-icon type="field" icon="back" color="#03A9F4" size="{{14}}" style="margin-right: 16rpx;" bindtap="togglePicker"></mp-icon>

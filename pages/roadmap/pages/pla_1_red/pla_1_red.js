@@ -175,7 +175,8 @@ Page({
       if (!nextYear) {
         nextYear = years[years.length - 1];
       }
-      const position = positions.find(area => year.position.y <= area.y1 && nextYear.position.y > area.y1 || year.year === area.forceTo);
+      const positionByForce =  positions.find(area => year.year === area.forceTo); // 选择的年份优先使用forceTo坐标
+      const position = positionByForce || positions.find(area => year.position.y <= area.y1 && nextYear.position.y > area.y1);
       if (position) {
         await this.setData({
           ...payload,
@@ -214,8 +215,13 @@ Page({
 
   changeTroop: function (e) {
     const troop = TROOPS[e.detail.value[0]];
-    const years = YEARS.filter(yr => {
+    const years = YEARS.filter((yr, index) => {
       if (troop.from && troop.to && troop.from > troop.to) {
+        return true;
+      }
+
+      // 有谱系标识的部队，可以滚动到顶部标识处
+      if (troop.family && index === 0) {
         return true;
       }
 

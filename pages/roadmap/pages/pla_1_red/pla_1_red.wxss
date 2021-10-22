@@ -11,11 +11,11 @@
 }
 
 .right-panel-hide {
-  width: 41rpx;
-  height: 82rpx;
+  width: 45rpx;
+  height: 90rpx;
   padding: 0 0 0 16rpx;
-  border-top-left-radius: 41rpx;
-  border-bottom-left-radius: 41rpx;
+  border-top-left-radius: 45rpx;
+  border-bottom-left-radius: 45rpx;
 }
 
 .zoom-panel {
@@ -37,11 +37,11 @@
 }
 
 .left-panel-hide {
-  width: 41rpx;
-  height: 82rpx;
-  padding: 0 0 0 16rpx;
-  border-top-right-radius: 41rpx;
-  border-bottom-right-radius: 41rpx;
+  width: 45rpx;
+  height: 90rpx;
+  padding: 0 8rpx;
+  border-top-right-radius: 45rpx;
+  border-bottom-right-radius: 45rpx;
 }
 
 .picker-panel {
@@ -65,19 +65,11 @@
   font-weight: bold;
 }
 
-.debug-panel-hide {
-  width: 48rpx;
-  height: 96rpx;
-  padding: 0 16rpx;
-  border-top-right-radius: 48rpx;
-  border-bottom-right-radius: 48rpx;
-}
-
 .debug-panel {
   display: flex;
   justify-content: start;
   align-items: center;
-  bottom: 144rpx;
+  bottom: 168rpx;
   left: 0;
 }
 
@@ -86,5 +78,6 @@
 }
 
 .debug-button {
+  height: 48rpx;
   margin-left: 16rpx;
 }

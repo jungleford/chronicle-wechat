@@ -16,7 +16,8 @@ Page({
     /*=== 变量 ===*/
     loading: true,
     // url: 'https://static.mysmth.net/nForum/att/Modern_CHN/609880/4524'
-    url: 'http://ks3-cn-beijing.ksyun.com/attachment/5c4dae443d305e6ab42fe90121327225',
+    url: 'https://ks3-cn-beijing.ksyun.com/attachment/5c4dae443d305e6ab42fe90121327225',
+    // filePath: null,
 
     width: 0, // 原始图片宽度：7340
     height: 0, // 原始图片高度：61649
@@ -257,6 +258,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // TODO: 如何用<image>加载下载到本地的图片？此处savedFilePath无法显示图片
+    // wx.downloadFile({
+    //   url: this.data.url,
+    //   type: 'image',
+    //   success: res => {
+    //     const tempFilePath = res.tempFilePath;
+    //     console.log(`临时文件：${tempFilePath}`);
+    //     // this.setData({filePath: tempFilePath});
+    //     const filePath = `${wx.env.USER_DATA_PATH}/red_army.svg`;
+    //     const fs = wx.getFileSystemManager();
+    //     fs.saveFile({
+    //       tempFilePath,
+    //       filePath,
+    //       success: res1 => {
+    //         console.log(`用户文件：${res1.savedFilePath}`);
+    //         this.setData({filePath: res1.savedFilePath});
+    //       },
+    //     });
+    //   }
+    // });
+
     this.setData({
       year: YEARS[0],
       years: YEARS,

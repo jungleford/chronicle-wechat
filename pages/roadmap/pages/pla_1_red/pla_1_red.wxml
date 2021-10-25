@@ -7,6 +7,13 @@
   scroll-x="true" scroll-y="true"
   scroll-left="{{x * zoom}}" scroll-top="{{y * zoom}}" bindscroll="onScroll"
 >
+  <!-- <div wx:if="{{!filePath}}">正在下载路线图...</div>
+  <image
+    wx:if="{{filePath}}"
+    mode="aspectFit" src="{{filePath}}"
+    style="width: {{width * zoom}}px; height: {{height * zoom}}px;"
+    bindload="onSvgLoaded"
+  /> -->
   <image
     mode="aspectFit" src="{{url}}"
     style="width: {{width * zoom}}px; height: {{height * zoom}}px;"

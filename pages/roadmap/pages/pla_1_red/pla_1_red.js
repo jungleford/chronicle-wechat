@@ -27,6 +27,11 @@ Page({
     y: 0, // 当前屏幕左上角的纵坐标
 
     showZoom: false, // 打开/收起缩放面板
+    showHelp: false, // 打开/收起帮助面板
+    showIntro: false, // 打开/关闭说明对话框
+    showLegend: false, // 打开/关闭图例对话框
+    showReference: false, // 打开/关闭参考资料对话框
+    dialogButtons: [{text: '确定'}],
 
     /*
      * 年份坐标快捷书签，默认放大倍率为1
@@ -96,7 +101,7 @@ Page({
 
   /* goto()为测试用 */
   goto: function () {
-    this.setData({x: this.data.debugX, y: this.data.debugY});
+    this.setData({x: this.data.debugX / this.data.zoom, y: this.data.debugY / this.data.zoom});
   },
 
   onSvgLoaded: function (e) {
@@ -136,10 +141,27 @@ Page({
     }
   },
 
+  /* 打开/关闭帮助面板 */
+  toggleHelp: function (e) {
+    this.setData({showHelp: !this.data.showHelp});
+  },
+
+  toggleIntro: function (e) {
+    this.setData({showIntro: !this.data.showIntro});
+  },
+
+  toggleLegend: function (e) {
+    this.setData({showLegend: !this.data.showLegend});
+  },
+
+  toggleReference: function (e) {
+    this.setData({showReference: !this.data.showReference});
+  },
+
   onScroll: function (e) {
-    console.log(`X: ${e.detail.scrollLeft}, Y: ${e.detail.scrollTop}`);
+    console.log(`X: ${e.detail.scrollLeft}, Y: ${e.detail.scrollTop}， ZOOM: ${this.data.zoom}`);
     this.setData({
-      showGoto: e.detail.scrollTop > 500, // 向下滚动大约一屏左右即显示“去顶部”按钮
+      showGoto: e.detail.scrollTop > app.globalData.screenHeight * 2, // 向下滚动大约两屏左右即显示“去顶部”按钮
     });
   },
 

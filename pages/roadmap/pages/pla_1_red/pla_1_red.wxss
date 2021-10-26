@@ -36,6 +36,40 @@
   padding: 0 8rpx;
 }
 
+.help-panel {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  top: 136rpx;
+  right: 0;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.dialog-content .sub-title {
+  font-weight: bold;
+}
+
+.dialog-content .line {
+  margin-bottom: 16rpx;
+}
+
+.dialog-content .line .highlight {
+  color: red;
+  font-weight: bold;
+}
+
+.divider {
+  width: 100%;
+  height: 5rpx;
+  background: #e0e3da;
+}
+
 .left-panel-hide {
   width: 45rpx;
   height: 90rpx;

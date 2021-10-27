@@ -43,6 +43,13 @@
 </view>
 <mp-dialog title="说明" show="{{showIntro}}" bindbuttontap="toggleIntro" buttons="{{dialogButtons}}">
   <view class="dialog-content">
+    <text class="line sub-title">使用方法</text>
+    <text class="line">● 手指按住屏幕上下左右移动浏览。</text>
+    <text class="line">● 左下角快捷定位面板：跳到指定年份指定部队在图中的位置。</text>
+    <text class="line">● 右上角缩放面板：25%到200%共五档缩放倍率。</text>
+    <text class="line">● 右上角帮助面板：显示本帮助、图例、参考资料。</text>
+    <hr class="divider" />
+    <text class="line sub-title">备注</text>
     <text class="line">1. 本路线图并非完整，部分小根据地或军区单位未列出。</text>
     <text class="line">2. 本路线图的序列粒度最小细化至团级，人事粒度最小细化至师级，中期以后一般未标注团级人事。</text>
     <text class="line">3. 若空间不够则以传统缩写标识：A（集团军、兵团、军团）、C（军）、D（师）、B（旅）、R（团）等。</text>

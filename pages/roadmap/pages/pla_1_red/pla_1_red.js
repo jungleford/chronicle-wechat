@@ -108,6 +108,7 @@ Page({
     console.log(`图片加载完毕！原始宽度：${e.detail.width}，原始高度：${e.detail.height}`);
     this.setData({
       loading: false,
+      showIntro: true,
       width: e.detail.width, // original image width
       height: e.detail.height, // original image height
     });

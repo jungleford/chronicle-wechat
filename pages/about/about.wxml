@@ -30,7 +30,7 @@
       <text class="label new-line list item-content">● 功能面板主要有三个，分别是：</text>
       <text class="label new-line list sub-item">a) 位于左下角的“<text class="highlight">定位面板</text>”。可以根据<text class="highlight">年份</text>或<text class="highlight">部队</text>快速跳到路线图相应位置。年份和部队选择器是用手指按住上下拖动来选择的。</text> 
       <text class="label new-line list sub-item">b) 位于右上角的“<text class="highlight">缩放面板</text>”。可以根据指定倍率放大或缩小路线图，支持从25%到200%共五档缩放倍率。</text>
-      <text class="label new-line list sub-item">b) 位于右上角的“<text class="highlight">帮助面板</text>”，在“缩放面板”的下方。可以打开路线图的使用说明、图例、和参考资料。</text>
+      <text class="label new-line list sub-item">c) 位于右上角的“<text class="highlight">帮助面板</text>”，在“缩放面板”的下方。可以打开路线图的使用说明、图例、和参考资料。</text>
       <text class="label new-line list item-content">● 当向下滚动超过两屏时，在右下角会出现一个“去顶部”按钮，方便一键滚动到路线图顶部。</text>
     </view>
 

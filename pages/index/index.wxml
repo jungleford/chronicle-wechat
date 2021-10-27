@@ -1,20 +1,20 @@
 <!--index.wxml-->
 <view class="home">
-  <view class="header" bindtap="goToDebug">
+  <view class="header" bindtap="goToMyApps">
     <image class="avatar" src="../../logo.png" />
     <text>v0.0.1</text>
   </view>
   <view class="body">
     <tile
-      imgUrl="/pages/index/image/background0.jpg" imgMode="aspectFill"
+      imgUrl="/pages/index/images/background0.jpg" imgMode="aspectFill"
       title="关于沿革史图解" id="about" bindtap="goToPage"
     />
     <tile
-      imgUrl="/pages/index/image/background1.jpg" imgMode="aspectFill"
+      imgUrl="/pages/index/images/background1.jpg" imgMode="aspectFill"
       title="中国工农红军部队沿革路线图" id="pla_1_red" bindtap="goToPage"
     />
-    <tile imgUrl="/pages/index/image/placeholder.png" foreground="#666" title="敬请期待" />
-    <tile imgUrl="/pages/index/image/placeholder.png" foreground="#666" title="敬请期待" />
-    <tile imgUrl="/pages/index/image/placeholder.png" foreground="#666" title="敬请期待" />
+    <tile imgUrl="/pages/index/images/placeholder.png" foreground="#666" title="敬请期待" />
+    <tile imgUrl="/pages/index/images/placeholder.png" foreground="#666" title="敬请期待" />
+    <tile imgUrl="/pages/index/images/placeholder.png" foreground="#666" title="敬请期待" />
   </view>
 </view>

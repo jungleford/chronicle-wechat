@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
+    "pages/my-apps/my-apps",
     "pages/about/about",
     "pages/roadmap/pages/pla_1_red/pla_1_red",
     "pages/debug/debug"

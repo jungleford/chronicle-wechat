@@ -1,0 +1,63 @@
+/* pages/my-apps/my-apps.wxss */
+@import "../common/common.wxss";
+
+.my-apps {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 80rpx;
+}
+
+.avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  border: 1rpx solid #aaa;
+  border-radius: 50%;
+  /* box-shadow: 2rpx 2rpx 2rpx #aaa; */
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 90%;
+  color: #aaa;
+}
+
+.tile {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 192rpx;
+  padding: 32rpx;
+}
+
+.tile .detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 48rpx;
+}
+
+.tile .title {
+  color: black;
+  font-size: large;
+  font-weight: bold;
+}
+
+.tile .description {
+  font-size: 24rpx;
+}

@@ -1,0 +1,18 @@
+<!--pages/my-apps/my-apps.wxml-->
+<view class="my-apps">
+
+  <view class="header">
+    <text class="title">我的其他小程序作品</text>
+  </view>
+
+  <view class="body">
+    <view wx:for="{{myApps}}" wx:key="item" class="tile">
+      <image class="avatar" src="icons/{{item.icon}}" bindtap="openApp" data-app-id="{{item.id}}" />
+      <view class="detail">
+        <text class="title">{{item.name}}</text>
+        <text class="description">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

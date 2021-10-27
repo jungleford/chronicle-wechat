@@ -16,12 +16,10 @@ Page({
     });
   },
 
-  goToDebug: function (e) {
-    if (app.globalData.debug) {
-      wx.navigateTo({
-        url: '../debug/debug'
-      });
-    }
+  goToMyApps: function (e) {
+    wx.navigateTo({
+      url: app.globalData.debug ? '../debug/debug' : '../my-apps/my-apps'
+    });
   },
 
   onLoad() {

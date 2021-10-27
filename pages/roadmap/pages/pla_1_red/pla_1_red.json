@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "goto": "../../../../components/goto/goto"
+    "goto": "../../../../components/goto/goto",
+    "hr": "../../../../components/hr/hr"
   }
 }

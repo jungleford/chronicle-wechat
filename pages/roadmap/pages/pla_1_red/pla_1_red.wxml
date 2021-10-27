@@ -61,7 +61,7 @@
     <text class="line"><text class="highlight">叉叉</text>：部队因撤编或被消灭而取消番号。</text>
     <text class="line"><text class="highlight">树状图</text>：部队的编成详图。在方框内的小型单位有时省略上下级单位间的树状连线。</text>
     <text class="line"><text class="highlight">双横线</text>：时期或有代表性事件的分界。</text>
-    <view class="line divider"></view>
+    <hr class="divider" />
     <text class="line"><text class="highlight">圆括号</text>内是部队主要领导者，空间不够时省略圆括号。</text>
     <text class="line"><text class="highlight">尖括号</text>内是注解（如红军时期区别使用同一番号的两支不同部队）。</text>
     <text class="line"><text class="highlight">方括号</text>内是经历的历史事件。</text>
@@ -80,7 +80,7 @@
     <text class="line">●《中国人民解放军历史资料丛书·中国人民解放军组织沿革·序列表（1）》，解放军出版社，2002</text>
     <text class="line">●《中国人民解放军历史资料丛书·中国人民解放军组织沿革·单位沿革（1）》，解放军出版社，2007</text>
     <text class="line">●《中国人民解放军历史资料丛书·红军长征：综述·大事记·表册》，解放军出版社，1989</text>
-    <view class="line divider"></view>
+    <hr class="divider" />
     <text class="line sub-title">辅助参考资料</text>
     <text class="line">●《国民革命军沿革实录》，戚厚杰 等，河北人民出版社，2001</text>
     <text class="line">●《国民革命军发展序列》，韦显文 等，解放军出版社，1987</text>

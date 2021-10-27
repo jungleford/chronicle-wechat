@@ -55,6 +55,10 @@
   font-weight: bold;
 }
 
+.dialog-content .line {
+  text-align: left;
+}
+
 .dialog-content .line, .dialog-content .divider {
   margin-bottom: 16rpx;
 }

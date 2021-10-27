@@ -19,7 +19,7 @@
   font-weight: bolder;
 }
 
-.subtitle {
+.sub-title {
   font-size: large;
   font-weight: bold;
 }
@@ -29,14 +29,27 @@
   padding-top: 10rpx;
 }
 
+.highlight {
+  font-weight: bold;
+}
+
 .hyperlink {
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: skyblue;
   text-decoration-line: underline;
   text-decoration-style: dashed;
+  word-break: break-all;
 }
 
 .float {
   position: fixed;
   z-index: 500;
+}
+
+.hint {
+  padding: 6px;
+  font-size: 12px;
+  border: 1px dashed;
+  border-radius: 8px;
+  background-color: lightyellow;
 }

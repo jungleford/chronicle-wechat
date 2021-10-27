@@ -7,10 +7,40 @@
   <view class="content">
 
     <view class="paragraph">
-      <text class="label small new-line" style="color: red;">声明：由于本人并非微信小程序的专业开发和美工设计人员，因此本程序的界面和功能都比较简单，仅仅是一个练习作品。本小程序是开源的，欢迎使用，但请务必注明作者和版权信息。</text>
+      <text class="label small hint">声明：由于本人并非微信小程序的专业开发和美工设计人员，因此本程序的界面和功能都比较简单，仅仅是一个练习作品。本小程序是开源的，欢迎使用，但请务必注明作者和版权信息。</text>
     </view>
 
     <view class="paragraph">
+      <text class="sub-title">简介</text>
+      <text class="label new-line">本小程序是一个基于图片格式年表/时间轴的手册式应用，主要目的是整理特定对象的沿革历史知识，方便广大历史爱好者快速检索。</text>
+      <text class="label new-line">本小程序是本人“<text class="highlight">沿革史图解</text>”项目的线上工具，所使用的图片是本人在业余时间通过系统整理绘制而成，所参考的相关资料均来自公开出版物。</text>
+      <text class="label new-line">详情请访问我的知乎专栏“<text class="highlight">沿革史图解</text>”：</text>
+      <text class="hyperlink new-line">https://www.zhihu.com/column/c_1388825019217211392</text>
+      <text class="label new-line">特别提示：<text class="highlight" style="color: red;">谢绝将本小程序所使用的各种图解用于商业用途！一般转载请勿修改原始图片并请保留版权信息。</text>如发现错误漏洞，请在知乎站内私信本人 ^_^</text>
+    </view>
+
+    <view class="paragraph">
+      <text class="sub-title">使用说明</text>
+      <text class="label new-line">本小程序的各主要功能界面大致遵循统一的规格（以“中国工农红军部队沿革路线图”为例）：</text>
+      <text class="label new-line list item-content">● 小程序首页的圆形图标下方是各功能页面入口，其中第一项即本说明页面。</text>
+      <text class="label new-line list item-content">● 从第二项开始是进入各具体沿革史年表，目前上线的仅有“<text class="highlight">中国工农红军部队沿革路线图</text>”这一项功能，以后会陆续开放更丰富的内容。</text>
+      <text class="label new-line list item-content">● 路线图页面主体结构包含一张路线图（是为该页面的主要内容）和几个悬浮的功能面板。</text>
+      <text class="label new-line list item-content">● 路线图原始面积比较大，用户可用手指按住屏幕上下左右拖动或滑动浏览。</text>
+      <text class="label new-line list item-content">● 功能面板是悬浮于路线图之上的，默认处于关闭状态，点击打开，再点击靠左边或右边的箭头可关闭。</text>
+      <text class="label new-line list item-content">● 功能面板主要有三个，分别是：</text>
+      <text class="label new-line list sub-item">a) 位于左下角的“<text class="highlight">定位面板</text>”。可以根据<text class="highlight">年份</text>或<text class="highlight">部队</text>快速跳到路线图相应位置。年份和部队选择器是用手指按住上下拖动来选择的。</text> 
+      <text class="label new-line list sub-item">b) 位于右上角的“<text class="highlight">缩放面板</text>”。可以根据指定倍率放大或缩小路线图，支持从25%到200%共五档缩放倍率。</text>
+      <text class="label new-line list sub-item">b) 位于右上角的“<text class="highlight">帮助面板</text>”，在“缩放面板”的下方。可以打开路线图的使用说明、图例、和参考资料。</text>
+      <text class="label new-line list item-content">● 当向下滚动超过两屏时，在右下角会出现一个“去顶部”按钮，方便一键滚动到路线图顶部。</text>
+    </view>
+
+    <view class="paragraph">
+      <text class="sub-title">一些问题</text>
+      <text class="label new-line">由于是试验性质作品，小程序本身功能比较简单，目前也还存在一些bug和限制，已知问题（以“中国工农红军部队沿革路线图”为例）如：</text>
+      <text class="label new-line list item-content">● 目前我还没有找到从远程下载到设备然后读取下载图片的合适的方式，因此年表/路线图的图片载入是远程读取方式，即每次进入相应页面都要从CDN加载图片，该图片可能比较大，比如“中国工农红军部队沿革路线图”整体大约2.3M，我不太清楚微信小程序对此是否有缓存机制，因此<text class="highlight">对手机流量敏感的用户请慎用此小程序</text>。</text>
+      <text class="label new-line list item-content">● 当手工移动或者使用“定位工具”跳到界面靠近路线图右端部分，比如“红一方面军谱系”或“闽浙赣红军谱系”，然后再点击“放大”按钮，此时横向定位可能会产生误差，需要手工移动到正确位置。</text>
+      <text class="label new-line list item-content">● 右上角的“缩小/放大工具”只支持五档固定倍率，还不支持用手指动态缩放。</text>
+      <text class="label new-line">这些问题期待在后续版本中予以改进。</text>
     </view>
 
   </view>

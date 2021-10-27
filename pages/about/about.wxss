@@ -9,11 +9,29 @@
   align-items: flex-start;
 }
 
-.paragraph .list.item-title {
+.paragraph text {
+  width: 100%;
+}
+
+.list.item-content .highlight {
+  color: red;
+}
+
+.sub-title {
+  margin-bottom: 20rpx;
+}
+
+.sub-title, .paragraph .list.item-title {
   color: blue;
   font-weight: bold;
 }
 
 .paragraph .list.item-content {
-  margin-left: 15px;
+  width: 90%;
+  margin-left: 32rpx;
+}
+
+.paragraph .list.sub-item {
+  width: 80%;
+  margin-left: 64rpx;
 }

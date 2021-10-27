@@ -15,7 +15,7 @@ Page({
 
     /*=== 变量 ===*/
     loading: true,
-    // url: 'https://static.mysmth.net/nForum/att/Modern_CHN/609880/4524'
+    // url: 'https://static.mysmth.net/nForum/att/Modern_CHN/609880/4524',
     url: 'https://ks3-cn-beijing.ksyun.com/attachment/5c4dae443d305e6ab42fe90121327225',
     // filePath: null,
 

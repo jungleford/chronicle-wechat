@@ -22,7 +22,11 @@ Page({
     width: 0, // 原始图片宽度：7340
     height: 0, // 原始图片高度：61649
     zoom: 1, // 初始放大倍率为1，即原始图片大小
-  
+    zoomToDisplay: 1, // 在缩放面板中显示的数值，最多带一位小数
+
+    distance: 0, // 计算双指间距离，用于计算动态缩放
+    distanceDiff: 0, // 双指间距离的动态变化值
+
     x: 0, // 当前屏幕左上角的横坐标
     y: 0, // 当前屏幕左上角的纵坐标
 
@@ -115,9 +119,42 @@ Page({
   },
 
   /* 手指缩放图片: https://segmentfault.com/a/1190000013687274 */
-  touchStart: function (e) {},
+  touchStart: function (e) {
+    // 单手指缩放开始，也不做任何处理
+    if(e.touches.length == 1) return;
 
-  touchMove: function (e) {},
+    console.log('双指触发开始');
+    let xMove = e.touches[1].clientX - e.touches[0].clientX;
+    let yMove = e.touches[1].clientY - e.touches[0].clientY;
+    let distance = Math.sqrt(xMove * xMove + yMove * yMove);
+    this.setData({ distance });
+  },
+
+  touchMove: function (e) {
+    // 单手指缩放我们不做任何操作
+    if(e.touches.length == 1) return;
+
+    console.log('双指缩放...');
+    let xMove = e.touches[1].clientX - e.touches[0].clientX;
+    let yMove = e.touches[1].clientY - e.touches[0].clientY;
+    let distance = Math.sqrt(xMove * xMove + yMove * yMove);
+    let distanceDiff = distance - this.data.distance;
+    let newZoom = this.data.zoom + 0.005 * distanceDiff;
+
+    if (newZoom > 2) {
+      newZoom = 2;
+    }
+    if (newZoom < 0.25) {
+      newZoom = 0.25;
+    }
+
+    this.setData({
+      distance,
+      zoom: newZoom,
+      zoomToDisplay: Math.floor(newZoom * 1000) / 1000,
+      distanceDiff
+    });
+  },
 
   /* 打开/关闭缩放面板 */
   toggleZoom: function (e) {
@@ -125,20 +162,32 @@ Page({
   },
 
   zoomIn: function (e) {
-    const index = this.data.ZOOM_LIST.findIndex(z => z === this.data.zoom);
+    var zoom = this.data.zoom;
+    var zl = this.data.ZOOM_LIST;
+    const index = zl.findIndex((z, i) => i > 0 ? z >= zoom && zl[i - 1] < zoom : z >= zoom);
     if (index < 0) {
-      this.setData({zoom: 1});
-    } else if (index < this.data.ZOOM_LIST.length - 1) {
-      this.setData({zoom: this.data.ZOOM_LIST[index + 1]});
+      this.setData({zoom: 1, zoomToDisplay: 1});
+    } else if (index < zl.length - 1) {
+      var newZoom = zl[index] === zoom ? zl[index + 1] : zl[index];
+      this.setData({
+        zoom: newZoom,
+        zoomToDisplay: newZoom
+      });
     }
   },
 
   zoomOut: function (e) {
-    const index = this.data.ZOOM_LIST.findIndex(z => z === this.data.zoom);
+    var zoom = this.data.zoom;
+    var zl = this.data.ZOOM_LIST;
+    const index = zl.findIndex((z, i) => i < zl.length - 1 ? z <= zoom && zl[i + 1] > zoom : z <= zoom);
     if (index < 0) {
-      this.setData({zoom: 1});
+      this.setData({zoom: 1, zoomToDisplay: 1});
     } else if (index > 0) {
-      this.setData({zoom: this.data.ZOOM_LIST[index - 1]});
+      var newZoom = zl[index] === zoom ? zl[index - 1] : zl[index];
+      this.setData({
+        zoom: newZoom,
+        zoomToDisplay: newZoom
+      });
     }
   },
 

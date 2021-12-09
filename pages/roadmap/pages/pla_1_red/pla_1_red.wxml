@@ -18,6 +18,7 @@
     mode="aspectFit" src="{{url}}"
     style="width: {{width * zoom}}px; height: {{height * zoom}}px;"
     bindload="onSvgLoaded"
+    bindtouchstart="touchStart" bindtouchmove="touchMove"
   />
 </scroll-view>
 
@@ -27,7 +28,7 @@
 <view wx:if="{{showZoom}}" class="zoom-panel float">
   <text class="label small" style="color: green;">缩放：</text>
   <button class="zoom-button" bindtap="zoomOut">-</button>
-  <text>{{zoom * 100}}%</text>
+  <text>{{zoomToDisplay * 100}}%</text>
   <button class="zoom-button" bindtap="zoomIn">+</button>
   <mp-icon type="field" icon="arrow" color="#03a9f4" size="{{14}}" style="margin-left: 16rpx;" bindtap="toggleZoom"></mp-icon>
 </view>

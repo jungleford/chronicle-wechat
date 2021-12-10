@@ -4,6 +4,7 @@
     "pages/logs/logs",
     "pages/my-apps/my-apps",
     "pages/about/about",
+    "pages/release-notes/release-notes",
     "pages/roadmap/pages/pla_1_red/pla_1_red",
     "pages/debug/debug"
   ],

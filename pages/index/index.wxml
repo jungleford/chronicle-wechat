@@ -1,8 +1,9 @@
 <!--index.wxml-->
 <view class="home">
-  <view class="header" bindtap="goToMyApps">
-    <image class="avatar" src="../../logo.png" />
-    <text>v0.0.1</text>
+  <view class="header">
+    <image class="avatar" src="../../logo.png" bindtap="goToMyApps" />
+    <text>v0.0.2</text>
+    <text class="hyperlink" bindtap="goToReleaseNotes">更新日志</text>
   </view>
   <view class="body">
     <tile

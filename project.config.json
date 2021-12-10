@@ -34,7 +34,9 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+    "minifyWXML": true,
     "minifyWXSS": true,
+    "minifyJS": true,
     "showES6CompileOption": false
   },
   "compileType": "miniprogram",

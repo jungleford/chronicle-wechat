@@ -22,6 +22,12 @@ Page({
     });
   },
 
+  goToReleaseNotes: function (e) {
+    wx.navigateTo({
+      url: '../release-notes/release-notes'
+    });
+  },
+
   onLoad() {
   }
 })

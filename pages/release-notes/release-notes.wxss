@@ -1,0 +1,2 @@
+/* pages/release-notes/release-notes.wxss */
+@import "../common/article.wxss";

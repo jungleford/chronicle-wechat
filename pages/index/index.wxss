@@ -1,4 +1,6 @@
 /**index.wxss**/
+@import "../common/common.wxss";
+
 .home {
   display: flex;
   flex-direction: column;

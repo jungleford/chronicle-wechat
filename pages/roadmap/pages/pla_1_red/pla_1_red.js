@@ -11,7 +11,7 @@ Page({
   data: {
     /*=== 常量 ===*/
     ZOOM_BEST: 1.5,
-    ZOOM_LIST: [0.25, 0.5, 1, 1.5, 2], // 简易的放大倍率列表
+    ZOOM_LIST: [0.25, 0.5, 1, 1.5, 2], // 简易的放大倍率列表，数值从小到大升序排列
 
     /*=== 变量 ===*/
     loading: true,
@@ -121,37 +121,39 @@ Page({
   /* 手指缩放图片: https://segmentfault.com/a/1190000013687274 */
   touchStart: function (e) {
     // 单手指缩放开始，也不做任何处理
-    if(e.touches.length == 1) return;
+    if (e.touches.length === 1) return;
 
     console.log('双指触发开始');
-    let xMove = e.touches[1].clientX - e.touches[0].clientX;
-    let yMove = e.touches[1].clientY - e.touches[0].clientY;
-    let distance = Math.sqrt(xMove * xMove + yMove * yMove);
+    const xMove = e.touches[1].clientX - e.touches[0].clientX;
+    const yMove = e.touches[1].clientY - e.touches[0].clientY;
+    const distance = Math.sqrt(xMove * xMove + yMove * yMove);
     this.setData({ distance });
   },
 
   touchMove: function (e) {
     // 单手指缩放我们不做任何操作
-    if(e.touches.length == 1) return;
+    if (e.touches.length === 1) return;
 
     console.log('双指缩放...');
-    let xMove = e.touches[1].clientX - e.touches[0].clientX;
-    let yMove = e.touches[1].clientY - e.touches[0].clientY;
-    let distance = Math.sqrt(xMove * xMove + yMove * yMove);
-    let distanceDiff = distance - this.data.distance;
+    const xMove = e.touches[1].clientX - e.touches[0].clientX;
+    const yMove = e.touches[1].clientY - e.touches[0].clientY;
+    const distance = Math.sqrt(xMove * xMove + yMove * yMove);
+    const distanceDiff = distance - this.data.distance;
     let newZoom = this.data.zoom + 0.005 * distanceDiff;
 
-    if (newZoom > 2) {
-      newZoom = 2;
+    const zoomMax = this.data.ZOOM_LIST[this.data.ZOOM_LIST.length - 1];
+    const zoomMin = this.data.ZOOM_LIST[0];
+    if (newZoom > zoomMax) {
+      newZoom = zoomMax;
     }
-    if (newZoom < 0.25) {
-      newZoom = 0.25;
+    if (newZoom < zoomMin) {
+      newZoom = zoomMin;
     }
 
     this.setData({
       distance,
       zoom: newZoom,
-      zoomToDisplay: Math.floor(newZoom * 1000) / 1000,
+      zoomToDisplay: Math.floor(newZoom * 1000) / 1000, // 缩放面板上的显示数值保留至多一位小数
       distanceDiff
     });
   },
@@ -162,13 +164,13 @@ Page({
   },
 
   zoomIn: function (e) {
-    var zoom = this.data.zoom;
-    var zl = this.data.ZOOM_LIST;
+    const zoom = this.data.zoom;
+    const zl = this.data.ZOOM_LIST;
     const index = zl.findIndex((z, i) => i > 0 ? z >= zoom && zl[i - 1] < zoom : z >= zoom);
     if (index < 0) {
       this.setData({zoom: 1, zoomToDisplay: 1});
     } else if (index < zl.length - 1) {
-      var newZoom = zl[index] === zoom ? zl[index + 1] : zl[index];
+      const newZoom = zl[index] === zoom ? zl[index + 1] : zl[index];
       this.setData({
         zoom: newZoom,
         zoomToDisplay: newZoom
@@ -177,13 +179,13 @@ Page({
   },
 
   zoomOut: function (e) {
-    var zoom = this.data.zoom;
-    var zl = this.data.ZOOM_LIST;
+    const zoom = this.data.zoom;
+    const zl = this.data.ZOOM_LIST;
     const index = zl.findIndex((z, i) => i < zl.length - 1 ? z <= zoom && zl[i + 1] > zoom : z <= zoom);
     if (index < 0) {
       this.setData({zoom: 1, zoomToDisplay: 1});
     } else if (index > 0) {
-      var newZoom = zl[index] === zoom ? zl[index - 1] : zl[index];
+      const newZoom = zl[index] === zoom ? zl[index - 1] : zl[index];
       this.setData({
         zoom: newZoom,
         zoomToDisplay: newZoom

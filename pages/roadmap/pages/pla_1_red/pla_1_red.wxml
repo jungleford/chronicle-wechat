@@ -7,20 +7,27 @@
   scroll-x="true" scroll-y="true"
   scroll-left="{{x * zoom}}" scroll-top="{{y * zoom}}" bindscroll="onScroll"
 >
-  <!-- <div wx:if="{{!filePath}}">正在下载路线图...</div>
-  <image
+  <!-- <image
     wx:if="{{filePath}}"
     mode="aspectFit" src="{{filePath}}"
     style="width: {{width * zoom}}px; height: {{height * zoom}}px;"
     bindload="onSvgLoaded"
+    bindtouchstart="touchStart" bindtouchmove="touchMove"
   /> -->
   <image
+    wx:if="{{!filePath}}"
     mode="aspectFit" src="{{url}}"
     style="width: {{width * zoom}}px; height: {{height * zoom}}px;"
     bindload="onSvgLoaded"
     bindtouchstart="touchStart" bindtouchmove="touchMove"
   />
 </scroll-view>
+
+<mp-dialog title="本地图片位置" show="{{debug && showFilePath}}" bindbuttontap="toggleFilePath" buttons="{{dialogButtons}}">
+  <view class="dialog-content">
+    <text class="line">{{filePath}}</text>
+  </view>
+</mp-dialog>
 
 <view wx:if="{{!showZoom}}" class="zoom-panel float right-panel-hide">
   <mp-icon type="field" icon="max-window" color="#03a9f4" size="{{18}}" bindtap="toggleZoom"></mp-icon>

@@ -17,7 +17,7 @@ Page({
     loading: true,
     // url: 'https://static.mysmth.net/nForum/att/Modern_CHN/609880/4524',
     url: 'https://ks3-cn-beijing.ksyun.com/attachment/5c4dae443d305e6ab42fe90121327225',
-    // filePath: null,
+    filePath: null,
 
     width: 0, // 原始图片宽度：7340
     height: 0, // 原始图片高度：61649
@@ -35,6 +35,7 @@ Page({
     showIntro: false, // 打开/关闭说明对话框
     showLegend: false, // 打开/关闭图例对话框
     showReference: false, // 打开/关闭参考资料对话框
+    showFilePath: false, // 打开/关闭本地图片路径对话框
     dialogButtons: [{text: '确定'}],
 
     /*
@@ -328,6 +329,10 @@ Page({
     });
   },
 
+  toggleFilePath: function (e) {
+    this.setData({showFilePath: !this.data.showFilePath});
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -339,7 +344,10 @@ Page({
     //   success: res => {
     //     const tempFilePath = res.tempFilePath;
     //     console.log(`临时文件：${tempFilePath}`);
-    //     // this.setData({filePath: tempFilePath});
+    //     // this.setData({
+    //     //   filePath: tempFilePath,
+    //     //   showFilePath: true
+    //     // });
     //     const filePath = `${wx.env.USER_DATA_PATH}/red_army.svg`;
     //     const fs = wx.getFileSystemManager();
     //     fs.saveFile({
@@ -347,7 +355,10 @@ Page({
     //       filePath,
     //       success: res1 => {
     //         console.log(`用户文件：${res1.savedFilePath}`);
-    //         this.setData({filePath: res1.savedFilePath});
+    //         this.setData({
+    //           filePath: res1.savedFilePath,
+    //           showFilePath: true
+    //         });
     //       },
     //     });
     //   }

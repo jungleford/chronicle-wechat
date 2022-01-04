@@ -1,0 +1,144 @@
+<!--components/roadmap-view/roadmap-view.wxml-->
+<loading hidden="{{!loading}}">努力加载中...</loading>
+
+<scroll-view
+  class="ctn"
+  enable-back-to-top="true" enhanced="true"
+  scroll-x="true" scroll-y="true"
+  scroll-left="{{x * zoom}}" scroll-top="{{y * zoom}}" bindscroll="onScroll"
+>
+  <!-- <image
+    wx:if="{{filePath}}"
+    mode="aspectFit" src="{{filePath}}"
+    style="width: {{width * zoom}}px; height: {{height * zoom}}px;"
+    bindload="onSvgLoaded"
+    bindtouchstart="touchStart" bindtouchmove="touchMove"
+  /> -->
+  <image
+    wx:if="{{!filePath}}"
+    mode="aspectFit" src="{{url}}"
+    style="width: {{width * zoom}}px; height: {{height * zoom}}px;"
+    bindload="onSvgLoaded"
+    bindtouchstart="touchStart" bindtouchmove="touchMove"
+  />
+</scroll-view>
+
+<mp-dialog title="本地图片位置" show="{{debug && showFilePath}}" bindbuttontap="toggleFilePath" buttons="{{dialogButtons}}">
+  <view class="dialog-content">
+    <text class="line">{{filePath}}</text>
+  </view>
+</mp-dialog>
+
+<view wx:if="{{!showZoom}}" class="zoom-panel float right-panel-hide">
+  <mp-icon type="field" icon="max-window" color="#03a9f4" size="{{18}}" bindtap="toggleZoom"></mp-icon>
+</view>
+<view wx:if="{{showZoom}}" class="zoom-panel float">
+  <text class="label small" style="color: green;">缩放：</text>
+  <button class="zoom-button" bindtap="zoomOut">-</button>
+  <text>{{zoomToDisplay * 100}}%</text>
+  <button class="zoom-button" bindtap="zoomIn">+</button>
+  <mp-icon type="field" icon="arrow" color="#03a9f4" size="{{14}}" style="margin-left: 16rpx;" bindtap="toggleZoom"></mp-icon>
+</view>
+
+<view wx:if="{{!showHelp}}" class="help-panel float right-panel-hide">
+  <mp-icon type="field" icon="help" color="#03a9f4" size="{{18}}" bindtap="toggleHelp"></mp-icon>
+</view>
+<view wx:if="{{showHelp}}" class="help-panel float">
+  <mp-icon type="outline" icon="help" color="#07c160" size="{{18}}" bindtap="toggleIntro"></mp-icon>
+  <mp-icon type="outline" icon="info" color="#07c160" size="{{18}}" style="margin-left: 16rpx;" bindtap="toggleLegend"></mp-icon>
+  <mp-icon type="outline" icon="note" color="#07c160" size="{{18}}" style="margin-left: 16rpx;" bindtap="toggleReference"></mp-icon>
+  <mp-icon type="field" icon="arrow" color="#03a9f4" size="{{14}}" style="margin-left: 16rpx;" bindtap="toggleHelp"></mp-icon>
+</view>
+<mp-dialog title="说明" show="{{showIntro}}" bindbuttontap="toggleIntro" buttons="{{dialogButtons}}">
+  <view class="dialog-content">
+    <text class="line sub-title">使用方法</text>
+    <text class="line">● 手指按住屏幕上下左右移动浏览。</text>
+    <text class="line">● 左下角快捷定位面板：跳到指定年份指定部队在图中的位置。</text>
+    <text class="line">● 右上角缩放面板：25%到200%共五档缩放倍率。</text>
+    <text class="line">● 右上角帮助面板：显示本帮助、图例、参考资料。</text>
+    <hr class="divider" />
+    <text class="line sub-title">备注</text>
+    <text class="line">1. 本路线图并非完整，部分小根据地或军区单位未列出。</text>
+    <text class="line">2. 本路线图的序列粒度最小细化至团级，人事粒度最小细化至师级，中期以后一般未标注团级人事。</text>
+    <text class="line">3. 若空间不够则以传统缩写标识：A（集团军、兵团、军团）、C（军）、D（师）、B（旅）、R（团）等。</text>
+    <text class="line">4. 部队领导按“军事首长－政治委员（或副军事首长）－参谋长－政治部主任”顺序。</text>
+    <text class="line">5. 部分人物未采用当时的名字，而使用建国后更为人熟知的名字，如龚楚（龚鹤村）、李涛（李湘舲）等。</text>
+    <text class="line">6. 由于资料和个人水平所限，本路线图可能存在一些错误，以后仍会不断修订完善。</text>
+  </view>
+</mp-dialog>
+<mp-dialog title="图例" show="{{showLegend}}" bindbuttontap="toggleLegend" buttons="{{dialogButtons}}">
+  <view class="dialog-content">
+    <text class="line"><text class="highlight">方框</text>：表示有代表意义的部队（尤其军以上建制部队）。</text>
+    <text class="line">左侧浅绿色长条框标示历史时期，右侧浅黄色小框是以年份为单位的时间坐标。</text>
+    <text class="line"><text class="highlight">带箭头线</text>：部队的演变（扩编、缩编、合编、改编、撤编等）。重点部队用加粗箭头表示。</text>
+    <text class="line"><text class="highlight">无箭头线</text>：主要指经历的事件，区别于部队之间的关系。</text>
+    <text class="line"><text class="highlight">虚线</text>：表明不同时期之间的部队沿革，或者是树状图中的虚编制部队。</text>
+    <text class="line"><text class="highlight">叉叉</text>：部队因撤编或被消灭而取消番号。</text>
+    <text class="line"><text class="highlight">树状图</text>：部队的编成详图。在方框内的小型单位有时省略上下级单位间的树状连线。</text>
+    <text class="line"><text class="highlight">双横线</text>：时期或有代表性事件的分界。</text>
+    <hr class="divider" />
+    <text class="line"><text class="highlight">圆括号</text>内是部队主要领导者，空间不够时省略圆括号。</text>
+    <text class="line"><text class="highlight">尖括号</text>内是注解（如红军时期区别使用同一番号的两支不同部队）。</text>
+    <text class="line"><text class="highlight">方括号</text>内是经历的历史事件。</text>
+    <text class="line"><text class="highlight">花括号</text>内是部队的编成略图或所辖单位简表（尤其师以下建制部队），是树状图的简化版。</text>
+    <text class="line">其中以逗号（<text class="highlight">，</text>）分隔表示不连续的番号，波浪线（<text class="highlight">～</text>）分隔表示连续的番号。</text>
+  </view>
+</mp-dialog>
+<mp-dialog title="参考资料" show="{{showReference}}" bindbuttontap="toggleReference" buttons="{{dialogButtons}}">
+  <view class="dialog-content">
+    <text class="line sub-title">主要参考资料</text>
+    <text class="line">●《中国工农红军第一方面军史》，解放军出版社，1993</text>
+    <text class="line">●《中国工农红军第二方面军战史》，解放军出版社，1992</text>
+    <text class="line">●《中国工农红军第四方面军战史》，解放军出版社，1989</text>
+    <text class="line">●《中国工农红军第三军团史》，国防大学出版社，1992</text>
+    <text class="line">●《中国工农红军第二十五军战史》，解放军出版社，1990</text>
+    <text class="line">●《中国人民解放军历史资料丛书·中国人民解放军组织沿革·序列表（1）》，解放军出版社，2002</text>
+    <text class="line">●《中国人民解放军历史资料丛书·中国人民解放军组织沿革·单位沿革（1）》，解放军出版社，2007</text>
+    <text class="line">●《中国人民解放军历史资料丛书·红军长征：综述·大事记·表册》，解放军出版社，1989</text>
+    <hr class="divider" />
+    <text class="line sub-title">辅助参考资料</text>
+    <text class="line">●《国民革命军沿革实录》，戚厚杰 等，河北人民出版社，2001</text>
+    <text class="line">●《国民革命军发展序列》，韦显文 等，解放军出版社，1987</text>
+    <text class="line">●《中国现代革命史资料丛刊·南昌起义资料》，人民出版社，1979</text>
+    <text class="line">●《陕北红军征战纪实》，冯捷，解放军文艺出版社，1996</text>
+    <text class="line">●《西北革命根据地史》，陕西省委党史研究室，陕西人民出版社，2015</text>
+    <text class="line">●《中国工农红军西路军》，甘肃人民出版社，2009</text>
+    <text class="line">●《中央革命根据地史料选编》，江西人民出版社，1982</text>
+    <text class="line">●《中国工农红军第二方面军战史资料选编》，解放军出版社，1995</text>
+    <text class="line">●《中国工农红军第四方面军战史资料选编》，解放军出版社，1993</text>
+    <text class="line">●《朱毛红军侧记》，萧克，中央党校出版社，1993</text>
+    <text class="line">● 部分人物的年谱、传记、回忆录 等</text>
+    <text class="line">● 部分网络资料</text>
+  </view>
+</mp-dialog>
+
+<view wx:if="{{!showPicker}}" class="picker-panel float left-panel-hide">
+  <mp-icon type="field" icon="location" color="#03a9f4" size="{{18}}" bindtap="togglePicker"></mp-icon>
+</view>
+<view wx:if="{{showPicker}}" class="picker-panel float">
+  <mp-icon type="field" icon="back" color="#03a9f4" size="{{12}}" style="margin-right: 16rpx;" bindtap="togglePicker"></mp-icon>
+  <picker-view value="{{yearIndex}}" bindchange="changeYear" indicator-class="picker-adapt">
+    <text class="label">年份：</text>
+    <picker-view-column class="picker-column">
+      <view wx:for="{{years}}" wx:key="item" class="picker-item" style="color: #ceba06;">{{item.year}}</view>
+    </picker-view-column>
+  </picker-view>
+  <picker-view value="{{troopIndex}}" bindchange="changeTroop" indicator-class="picker-adapt">
+    <text class="label">部队：</text>
+    <picker-view-column class="picker-column">
+      <view wx:for="{{troops}}" wx:key="item" class="picker-item" style="color: red;">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+
+<view wx:if="{{debug && !showDebug}}" class="debug-panel float left-panel-hide">
+  <mp-icon type="field" icon="eyes-on" color="#ff4081" size="{{18}}" bindtap="toggleDebug"></mp-icon>
+</view>
+<view wx:if="{{debug && showDebug}}" class="debug-panel float">
+  <mp-icon type="field" icon="back" color="#ff4081" size="{{14}}" style="margin-right: 16rpx;" bindtap="toggleDebug"></mp-icon>
+  <text class="label">X：</text><input class="debug-input" type="number" value="{{debugX}}" bindblur="setX" />
+  <text class="label">Y：</text><input class="debug-input" type="number" value="{{debugY}}" bindblur="setY" />
+  <button class="debug-button" size="mini" type="primary" bindtap="goto" style="line-height: 48rpx;">Go!</button>
+</view>
+
+<goto show="{{showGoto}}" text="去顶部" delegate="false" bindtap="goTop" />

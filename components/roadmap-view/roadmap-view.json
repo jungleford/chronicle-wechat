@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "goto": "../goto/goto",
+    "hr": "../hr/hr"
+  }
+}

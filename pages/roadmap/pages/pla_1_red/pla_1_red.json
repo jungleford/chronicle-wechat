@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "goto": "../../../../components/goto/goto",
-    "hr": "../../../../components/hr/hr"
+    "roadmap-view": "../../../../components/roadmap-view/roadmap-view"
   }
 }

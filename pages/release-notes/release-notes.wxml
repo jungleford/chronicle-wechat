@@ -6,8 +6,9 @@
   <view class="content">
     <view class="paragraph">
       <text class="sub-title">xxxx年xx月xx日  v0.0.2</text>
-      <text class="label new-line">部分问题的修复</text>
+      <text class="label new-line">重构与部分问题的修复</text>
       <text class="label new-line list item-content">● 路线图支持用手指动态缩放，倍率在25%至200%之间。</text>
+      <text class="label new-line list item-content">● 部分代码重构。</text>
     </view>
 
     <view class="paragraph">

@@ -1,5 +1,5 @@
 // pages/roadmap/pages/pla_1_red/pla_1_red.js
-import {YEARS, TROOPS} from './data';
+import {YEARS, TROOPS, INTRO, LEGEND, REFERENCE} from './data';
 
 const app = getApp();
 
@@ -18,7 +18,7 @@ Page({
     url: 'https://ks3-cn-beijing.ksyun.com/attachment/5c4dae443d305e6ab42fe90121327225',
     filePath: null,
     showFilePath: false, // 打开/关闭本地图片路径对话框
-    mapData: {YEARS, TROOPS}
+    mapData: {YEARS, TROOPS, INTRO, LEGEND, REFERENCE}
   },
 
   /**

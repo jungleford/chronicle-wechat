@@ -279,4 +279,525 @@ export const TROOPS = [
       {x1: 4336, y1: 60925, x2: 4336, y2: 60925, forceTo: 1937},
     ],
   },
-]
+];
+
+export const INTRO = [
+  {
+    type: 'sub-title',
+    line: [
+      {
+        type: 'plain',
+        value: '使用方法'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '● 手指按住屏幕上下左右移动浏览。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '● 双指可动态缩放，倍率在25%到200%之间，'
+      },
+      {
+        type: 'highlight',
+        value: '但是体验并不好'
+      },
+      {
+        type: 'plain',
+        value: '，仍然推荐使用右上角的缩放面板进行固定倍率的缩放（见下面的说明）。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '● 左下角快捷定位面板：跳到指定年份指定部队在图中的位置。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '● 右上角缩放面板：25%到200%共五档缩放倍率。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '● 右上角帮助面板：显示本帮助、图例、参考资料。'
+      }
+    ]
+  },
+  {
+    type: 'divider',
+    line: []
+  },
+  {
+    type: 'sub-title',
+    line: [
+      {
+        type: 'plain',
+        value: '备注'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '1. 本路线图并非完整，部分小根据地或军区单位未列出。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '2. 本路线图的序列粒度最小细化至团级，人事粒度最小细化至师级，中期以后一般未标注团级人事。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '3. 若空间不够则以传统缩写标识：A（集团军、兵团、军团）、C（军）、D（师）、B（旅）、R（团）等。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '4. 部队领导按“军事首长－政治委员（或副军事首长）－参谋长－政治部主任”顺序。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '5. 部分人物未采用当时的名字，而使用建国后更为人熟知的名字，如龚楚（龚鹤村）、李涛（李湘舲）等。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '6. 由于资料和个人水平所限，本路线图可能存在一些错误，以后仍会不断修订完善。'
+      }
+    ]
+  }
+];
+
+export const LEGEND = [
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '方框'
+      },
+      {
+        type: 'plain',
+        value: '：表示有代表意义的部队（尤其军以上建制部队）。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '左侧浅绿色长条框标示历史时期，右侧浅黄色小框是以年份为单位的时间坐标。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '带箭头线'
+      },
+      {
+        type: 'plain',
+        value: '：部队的演变（扩编、缩编、合编、改编、撤编等）。重点部队用加粗箭头表示。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '无箭头线'
+      },
+      {
+        type: 'plain',
+        value: '：主要指经历的事件，区别于部队之间的关系。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '虚线'
+      },
+      {
+        type: 'plain',
+        value: '：表明不同时期之间的部队沿革，或者是树状图中的虚编制部队。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '叉叉'
+      },
+      {
+        type: 'plain',
+        value: '：部队因撤编或被消灭而取消番号。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '树状图'
+      },
+      {
+        type: 'plain',
+        value: '：部队的编成详图。在方框内的小型单位有时省略上下级单位间的树状连线。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '双横线'
+      },
+      {
+        type: 'plain',
+        value: '：时期或有代表性事件的分界。'
+      }
+    ]
+  },
+  {
+    type: 'divider',
+    line: []
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '圆括号'
+      },
+      {
+        type: 'plain',
+        value: '内是部队主要领导者，空间不够时省略圆括号。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '尖括号'
+      },
+      {
+        type: 'plain',
+        value: '内是注解（如红军时期区别使用同一番号的两支不同部队）。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '方括号'
+      },
+      {
+        type: 'plain',
+        value: '内是经历的历史事件。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'highlight',
+        value: '花括号'
+      },
+      {
+        type: 'plain',
+        value: '内是部队的编成略图或所辖单位简表（尤其师以下建制部队），是树状图的简化版。'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '其中以逗号（'
+      },
+      {
+        type: 'highlight',
+        value: '，'
+      },
+      {
+        type: 'plain',
+        value: '）分隔表示不连续的番号，波浪线（'
+      },
+      {
+        type: 'highlight',
+        value: '～'
+      },
+      {
+        type: 'plain',
+        value: '）分隔表示连续的番号。'
+      }
+    ]
+  }
+];
+
+export const REFERENCE = [
+  {
+    type: 'sub-title',
+    line: [
+      {
+        type: 'plain',
+        value: '主要参考资料'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国工农红军第一方面军史》，解放军出版社，1993'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国工农红军第二方面军战史》，解放军出版社，1992'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国工农红军第四方面军战史》，解放军出版社，1989'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国工农红军第三军团史》，国防大学出版社，1992'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国工农红军第二十五军战史》，解放军出版社，1990'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国人民解放军历史资料丛书·中国人民解放军组织沿革·序列表（1）》，解放军出版社，2002'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国人民解放军历史资料丛书·中国人民解放军组织沿革·单位沿革（1）》，解放军出版社，2007'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国人民解放军历史资料丛书·红军长征：综述·大事记·表册》，解放军出版社，1989'
+      }
+    ]
+  },
+  {
+    type: 'divider',
+    line: []
+  },
+  {
+    type: 'sub-title',
+    line: [
+      {
+        type: 'plain',
+        value: '辅助参考资料'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《国民革命军沿革实录》，戚厚杰 等，河北人民出版社，2001'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《国民革命军发展序列》，韦显文 等，解放军出版社，1987'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国现代革命史资料丛刊·南昌起义资料》，人民出版社，1979'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《陕北红军征战纪实》，冯捷，解放军文艺出版社，1996'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《西北革命根据地史》，陕西省委党史研究室，陕西人民出版社，2015'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国工农红军西路军》，甘肃人民出版社，2009'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中央革命根据地史料选编》，江西人民出版社，1982'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国工农红军第二方面军战史资料选编》，解放军出版社，1995'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《中国工农红军第四方面军战史资料选编》，解放军出版社，1993'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '●《朱毛红军侧记》，萧克，中央党校出版社，1993'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '● 部分人物的年谱、传记、回忆录 等'
+      }
+    ]
+  },
+  {
+    type: 'line',
+    line: [
+      {
+        type: 'plain',
+        value: '● 部分网络资料'
+      }
+    ]
+  }
+];

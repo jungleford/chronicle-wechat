@@ -32,6 +32,7 @@
       <text class="label new-line list sub-item">b) 位于右上角的“<text class="highlight">缩放面板</text>”。可以根据指定倍率放大或缩小路线图，支持从25%到200%共五档缩放倍率。</text>
       <text class="label new-line list sub-item">c) 位于右上角的“<text class="highlight">帮助面板</text>”，在“缩放面板”的下方。可以打开路线图的使用说明、图例、和参考资料。</text>
       <text class="label new-line list item-content">● 当向下滚动超过两屏时，在右下角会出现一个“去顶部”按钮，方便一键滚动到路线图顶部。</text>
+      <text class="label new-line list item-content">● 支持用手指动态缩放，但是体验不甚佳，动态缩放倍率也在25%至200%之间。故仍然推荐首选使用面板中的五档固定缩放倍率。</text>
     </view>
 
     <view class="paragraph">
@@ -39,7 +40,6 @@
       <text class="label new-line">由于是试验性质作品，小程序本身功能比较简单，目前也还存在一些bug和限制，已知问题（以“中国工农红军部队沿革路线图”为例）如：</text>
       <text class="label new-line list item-content">● 目前我还没有找到从远程下载到设备然后读取下载图片的合适的方式，因此年表/路线图的图片载入是远程读取方式，即每次进入相应页面都要从CDN加载图片，该图片可能比较大，比如“中国工农红军部队沿革路线图”整体大约2.3M，我不太清楚微信小程序对此是否有缓存机制，因此<text class="highlight">介意手机流量的用户请慎用此小程序</text>。</text>
       <text class="label new-line list item-content">● 当手工移动或者使用“定位工具”跳到界面靠近路线图右端部分，比如“红一方面军谱系”或“闽浙赣红军谱系”，然后再点击“放大”按钮，此时横向定位可能会产生误差，需要手工移动到正确位置。</text>
-      <text class="label new-line list item-content">● 右上角的“缩小/放大工具”只支持五档固定倍率，支持用手指动态缩放，但是体验不甚佳，动态缩放倍率也在25%至200%之间。</text>
       <text class="label new-line">这些问题期待在后续版本中予以改进。</text>
     </view>
 

@@ -28,6 +28,7 @@ Component({
    */
   data: {
     loading: true,
+    // scrollView: null, // ScrollViewContext
 
     width: 0, // 原始图片宽度：7340
     height: 0, // 原始图片高度：61649
@@ -123,13 +124,18 @@ Component({
     /* goto()为测试用 */
     goto: function () {
       this.setData({x: this.data.debugX / this.data.zoom, y: this.data.debugY / this.data.zoom});
+      // this.data.scrollView.fields({node: true, size: true}).exec(res => {
+      //   console.log(res[0]);
+      //   var sv = res[0].node;
+      //   sv.scrollTo({left: this.data.debugX, top: this.data.debugY});
+      // });
     },
 
     onSvgLoaded: function (e) {
       console.log(`图片加载完毕！原始宽度：${e.detail.width}，原始高度：${e.detail.height}`);
       this.setData({
         loading: false,
-        showIntro: true,
+        showIntro: Array.isArray(this.data.mapData.INTRO) && this.data.mapData.INTRO.length > 0,
         width: e.detail.width, // original image width
         height: e.detail.height, // original image height
       });
@@ -367,6 +373,7 @@ Component({
         years: YEARS,
         troop: TROOPS[0],
         troops: TROOPS,
+        // scrollView: this.createSelectorQuery().select('#scrollview')
       });
     },
 

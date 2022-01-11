@@ -1,7 +1,7 @@
 <!--components/roadmap-view/roadmap-view.wxml-->
 <loading hidden="{{!loading}}">努力加载中...</loading>
 
-<scroll-view
+<scroll-view id="scrollview"
   class="ctn"
   enable-back-to-top="true" enhanced="true"
   scroll-x="true" scroll-y="true"
@@ -44,12 +44,12 @@
   <mp-icon type="field" icon="help" color="#03a9f4" size="{{18}}" bindtap="toggleHelp"></mp-icon>
 </view>
 <view wx:if="{{showHelp}}" class="help-panel float">
-  <mp-icon type="outline" icon="help" color="#07c160" size="{{18}}" bindtap="toggleIntro"></mp-icon>
-  <mp-icon type="outline" icon="info" color="#07c160" size="{{18}}" style="margin-left: 16rpx;" bindtap="toggleLegend"></mp-icon>
-  <mp-icon type="outline" icon="note" color="#07c160" size="{{18}}" style="margin-left: 16rpx;" bindtap="toggleReference"></mp-icon>
+  <mp-icon wx:if="{{mapData.INTRO}}" type="outline" icon="help" color="#07c160" size="{{18}}" bindtap="toggleIntro"></mp-icon>
+  <mp-icon wx:if="{{mapData.LEGEND}}" type="outline" icon="info" color="#07c160" size="{{18}}" style="margin-left: 16rpx;" bindtap="toggleLegend"></mp-icon>
+  <mp-icon wx:if="{{mapData.REFERENCE}}" type="outline" icon="note" color="#07c160" size="{{18}}" style="margin-left: 16rpx;" bindtap="toggleReference"></mp-icon>
   <mp-icon type="field" icon="arrow" color="#03a9f4" size="{{14}}" style="margin-left: 16rpx;" bindtap="toggleHelp"></mp-icon>
 </view>
-<mp-dialog title="说明" show="{{showIntro}}" bindbuttontap="toggleIntro" buttons="{{dialogButtons}}">
+<mp-dialog wx:if="{{mapData.INTRO}}" title="说明" show="{{showIntro}}" bindbuttontap="toggleIntro" buttons="{{dialogButtons}}">
   <view class="dialog-content">
     <block wx:for="{{mapData.INTRO}}" wx:for-item="intro" wx:key="index">
       <block wx:if="{{intro.type === 'sub-title'}}">
@@ -74,7 +74,7 @@
     </block>
   </view>
 </mp-dialog>
-<mp-dialog title="图例" show="{{showLegend}}" bindbuttontap="toggleLegend" buttons="{{dialogButtons}}">
+<mp-dialog wx:if="{{mapData.LEGEND}}" title="图例" show="{{showLegend}}" bindbuttontap="toggleLegend" buttons="{{dialogButtons}}">
   <view class="dialog-content">
     <block wx:for="{{mapData.LEGEND}}" wx:for-item="legend" wx:key="index">
       <block wx:if="{{legend.type === 'sub-title'}}">
@@ -99,7 +99,7 @@
     </block>
   </view>
 </mp-dialog>
-<mp-dialog title="参考资料" show="{{showReference}}" bindbuttontap="toggleReference" buttons="{{dialogButtons}}">
+<mp-dialog wx:if="{{mapData.REFERENCE}}" title="参考资料" show="{{showReference}}" bindbuttontap="toggleReference" buttons="{{dialogButtons}}">
   <view class="dialog-content">
     <block wx:for="{{mapData.REFERENCE}}" wx:for-item="reference" wx:key="index">
       <block wx:if="{{reference.type === 'sub-title'}}">

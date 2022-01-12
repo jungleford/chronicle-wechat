@@ -33,7 +33,7 @@ Component({
     width: 0, // 原始图片宽度：7340
     height: 0, // 原始图片高度：61649
     zoom: 1, // 初始放大倍率为1，即原始图片大小
-    zoomToDisplay: 1, // 在缩放面板中显示的数值，最多带一位小数
+    zoomToDisplay: '100', // 在缩放面板中显示的数值，最多带一位小数
 
     distance: 0, // 计算双指间距离，用于计算动态缩放
     distanceDiff: 0, // 双指间距离的动态变化值
@@ -181,12 +181,17 @@ Component({
         newZoom = zoomMin;
       }
 
+      let zoomToDisplay = (newZoom * 100).toFixed(1);
+      if (zoomToDisplay.endsWith('.0')) {
+        zoomToDisplay = zoomToDisplay.substring(0, zoomToDisplay.length - 2);
+      }
+
       this.setData({
         distance,
         x: this.data.scrollX / this.data.zoom,
         y: this.data.scrollY / this.data.zoom,
         zoom: newZoom,
-        zoomToDisplay: Math.floor(newZoom * 1000) / 1000, // 缩放面板上的显示数值保留至多一位小数
+        zoomToDisplay, // 缩放面板上的显示数值保留至多一位小数
         distanceDiff
       });
     },
@@ -201,18 +206,20 @@ Component({
       const zl = this.data.zoomList;
       const index = zl.findIndex((z, i) => i > 0 ? z >= zoom && zl[i - 1] < zoom : z >= zoom);
       if (index < 0) {
-        this.setData({zoom: 1, zoomToDisplay: 1});
+        this.setData({zoom: 1, zoomToDisplay: '100'});
       } else if (index < zl.length - 1) {
         const newZoom = zl[index] === zoom ? zl[index + 1] : zl[index];
+        const zoomToDisplay = (newZoom * 100).toString();
         this.setData({
           zoom: newZoom,
-          zoomToDisplay: newZoom
+          zoomToDisplay
         });
       } else {
         const newZoom = zl[zl.length - 1];
+        const zoomToDisplay = (newZoom * 100).toString();
         this.setData({
           zoom: newZoom,
-          zoomToDisplay: newZoom
+          zoomToDisplay
         });
       }
     },
@@ -222,18 +229,20 @@ Component({
       const zl = this.data.zoomList;
       const index = zl.findIndex((z, i) => i < zl.length - 1 ? z <= zoom && zl[i + 1] > zoom : z <= zoom);
       if (index < 0) {
-        this.setData({zoom: 1, zoomToDisplay: 1});
+        this.setData({zoom: 1, zoomToDisplay: '100'});
       } else if (index > 0) {
         const newZoom = zl[index] === zoom ? zl[index - 1] : zl[index];
+        const zoomToDisplay = (newZoom * 100).toString();
         this.setData({
           zoom: newZoom,
-          zoomToDisplay: newZoom
+          zoomToDisplay
         });
       } else {
         const newZoom = zl[0];
+        const zoomToDisplay = (newZoom * 100).toString();
         this.setData({
           zoom: newZoom,
-          zoomToDisplay: newZoom
+          zoomToDisplay
         });
       }
     },

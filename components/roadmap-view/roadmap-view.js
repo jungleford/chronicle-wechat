@@ -170,7 +170,7 @@ Component({
       const yMove = e.touches[1].clientY - e.touches[0].clientY;
       const distance = Math.sqrt(xMove * xMove + yMove * yMove);
       const distanceDiff = distance - this.data.distance;
-      let newZoom = this.data.zoom + 0.005 * distanceDiff;
+      let newZoom = this.data.zoom + 0.002 * distanceDiff;
 
       const zoomMax = this.data.zoomList[this.data.zoomList.length - 1];
       const zoomMin = this.data.zoomList[0];

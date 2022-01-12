@@ -38,8 +38,10 @@ Component({
     distance: 0, // 计算双指间距离，用于计算动态缩放
     distanceDiff: 0, // 双指间距离的动态变化值
 
-    x: 0, // 当前屏幕左上角的横坐标
-    y: 0, // 当前屏幕左上角的纵坐标
+    x: 0, // 初始左上角的横坐标，倍率恒定为1
+    y: 0, // 初始左上角的纵坐标，倍率恒定为1
+    scrollX: 0, // 当前屏幕左上角的横坐标
+    scrollY: 0, // 当前屏幕左上角的纵坐标
 
     showZoom: false, // 打开/收起缩放面板
     showHelp: false, // 打开/收起帮助面板
@@ -123,7 +125,13 @@ Component({
 
     /* goto()为测试用 */
     goto: function () {
-      this.setData({x: this.data.debugX / this.data.zoom, y: this.data.debugY / this.data.zoom});
+      var scrollX = this.data.debugX;
+      var scrollY = this.data.debugY;
+      this.setData({
+        x: scrollX / this.data.zoom,
+        y: scrollY / this.data.zoom,
+        scrollX, scrollY
+      });
       // this.data.scrollView.fields({node: true, size: true}).exec(res => {
       //   console.log(res[0]);
       //   var sv = res[0].node;
@@ -175,6 +183,8 @@ Component({
 
       this.setData({
         distance,
+        x: this.data.scrollX / this.data.zoom,
+        y: this.data.scrollY / this.data.zoom,
         zoom: newZoom,
         zoomToDisplay: Math.floor(newZoom * 1000) / 1000, // 缩放面板上的显示数值保留至多一位小数
         distanceDiff
@@ -234,8 +244,11 @@ Component({
     },
 
     onScroll: function (e) {
-      console.log(`X: ${e.detail.scrollLeft}, Y: ${e.detail.scrollTop}， ZOOM: ${this.data.zoom}`);
+      var scrollX = e.detail.scrollLeft;
+      var scrollY = e.detail.scrollTop;
+      console.log(`X': ${scrollX}, Y': ${scrollY}， ZOOM: ${this.data.zoom}`);
       this.setData({
+        scrollX, scrollY,
         showGoto: e.detail.scrollTop > app.globalData.screenHeight * 2, // 向下滚动大约两屏左右即显示“去顶部”按钮
       });
     },

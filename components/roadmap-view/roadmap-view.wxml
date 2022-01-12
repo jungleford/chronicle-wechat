@@ -1,6 +1,11 @@
 <!--components/roadmap-view/roadmap-view.wxml-->
 <loading hidden="{{!loading}}">努力加载中...</loading>
 
+<view wx:if="{{debug}}" class="position-panel float">
+  <span>X: {{x}}, Y: {{y}}, ZOOM: {{zoom}}</span>
+  <span>X': {{scrollX}}, Y': {{scrollY}}</span>
+</view>
+
 <scroll-view id="scrollview"
   class="ctn"
   enable-back-to-top="true" enhanced="true"

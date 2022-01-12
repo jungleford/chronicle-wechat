@@ -125,8 +125,8 @@ Component({
 
     /* goto()为测试用 */
     goto: function () {
-      var scrollX = this.data.debugX;
-      var scrollY = this.data.debugY;
+      const scrollX = this.data.debugX;
+      const scrollY = this.data.debugY;
       this.setData({
         x: scrollX / this.data.zoom,
         y: scrollY / this.data.zoom,
@@ -134,7 +134,7 @@ Component({
       });
       // this.data.scrollView.fields({node: true, size: true}).exec(res => {
       //   console.log(res[0]);
-      //   var sv = res[0].node;
+      //   const sv = res[0].node;
       //   sv.scrollTo({left: this.data.debugX, top: this.data.debugY});
       // });
     },
@@ -208,6 +208,12 @@ Component({
           zoom: newZoom,
           zoomToDisplay: newZoom
         });
+      } else {
+        const newZoom = zl[zl.length - 1];
+        this.setData({
+          zoom: newZoom,
+          zoomToDisplay: newZoom
+        });
       }
     },
 
@@ -219,6 +225,12 @@ Component({
         this.setData({zoom: 1, zoomToDisplay: 1});
       } else if (index > 0) {
         const newZoom = zl[index] === zoom ? zl[index - 1] : zl[index];
+        this.setData({
+          zoom: newZoom,
+          zoomToDisplay: newZoom
+        });
+      } else {
+        const newZoom = zl[0];
         this.setData({
           zoom: newZoom,
           zoomToDisplay: newZoom
@@ -244,8 +256,8 @@ Component({
     },
 
     onScroll: function (e) {
-      var scrollX = e.detail.scrollLeft;
-      var scrollY = e.detail.scrollTop;
+      const scrollX = e.detail.scrollLeft;
+      const scrollY = e.detail.scrollTop;
       console.log(`X': ${scrollX}, Y': ${scrollY}， ZOOM: ${this.data.zoom}`);
       this.setData({
         scrollX, scrollY,
@@ -377,8 +389,8 @@ Component({
      * 在组件实例进入页面节点树时执行
      */
     attached: function() {
-      var YEARS = this.data.mapData.YEARS;
-      var TROOPS = this.data.mapData.TROOPS;
+      const YEARS = this.data.mapData.YEARS;
+      const TROOPS = this.data.mapData.TROOPS;
       this.setData({
         YEARS,
         TROOPS,

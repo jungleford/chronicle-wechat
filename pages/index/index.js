@@ -3,6 +3,7 @@ const app = getApp();
 
 Page({
   data: {
+    debug: app.globalData.debug
   },
 
   // 事件处理函数
@@ -18,7 +19,7 @@ Page({
 
   goToMyApps: function (e) {
     wx.navigateTo({
-      url: app.globalData.debug ? '../debug/debug' : '../my-apps/my-apps'
+      url: this.data.debug ? '../debug/debug' : '../my-apps/my-apps'
     });
   },
 

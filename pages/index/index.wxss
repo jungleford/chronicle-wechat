@@ -29,6 +29,15 @@
   /* box-shadow: 2rpx 2rpx 2rpx #aaa; */
 }
 
+.debug-tag {
+  font-size: 16rpx;
+  font-weight: bold;
+  padding: 8rpx;
+  color: white;
+  background-color: red;
+  border-radius: 16rpx;
+}
+
 .body {
   display: flex;
   flex-direction: column;

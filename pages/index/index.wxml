@@ -3,6 +3,7 @@
   <view class="header">
     <image class="avatar" src="../../logo.png" bindtap="goToMyApps" />
     <text>v0.0.2</text>
+    <text wx:if="{{debug}}" class="debug-tag">DEBUG</text>
     <text class="hyperlink" bindtap="goToReleaseNotes">更新日志</text>
   </view>
   <view class="body">
